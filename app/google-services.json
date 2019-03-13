@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "4957314695",
+    "firebase_url": "https://bilger-universal-project.firebaseio.com",
+    "project_id": "bilger-universal-project",
+    "storage_bucket": "bilger-universal-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:4957314695:android:b73c5d2144477bf8",
+        "android_client_info": {
+          "package_name": "com.example.yahov.android_mvp_kinvey_sample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "4957314695-4snf4v61g784roff3aguctgec197vfei.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAU9w-Agoy9TGk6DOWY7VZC7iBc6tBmzag"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
