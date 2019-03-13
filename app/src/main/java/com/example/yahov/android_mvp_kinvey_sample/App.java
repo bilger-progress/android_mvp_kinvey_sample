@@ -11,8 +11,9 @@ public class App extends Application {
         super.onCreate();
 
         // Decide what Backend Service will be used.
-        iBackendService = new KinveyBackendService("xxx", "xxx");
-        iBackendService.init(this);
+        // iBackendService = new KinveyBackendService("xxx", "xxx");
+        // iBackendService = new FirebaseBackendService();
+        // iBackendService.init(this);
     }
 
     public IBackendService getiBackendService() {
