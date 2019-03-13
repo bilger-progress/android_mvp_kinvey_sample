@@ -38,16 +38,23 @@ public class KinveyBackendService implements IBackendService {
     @Override
     public void signIn(String userName, String password, final IBackendServiceSignIn iBackendServiceSignIn) {
         try {
-            UserStore.login(userName, password, kinveyClient, new KinveyClientCallback<User>() {
-                @Override
-                public void onFailure(Throwable throwable) {
-                    iBackendServiceSignIn.onFailure(throwable);
-                }
-                @Override
-                public void onSuccess(User user) {
-                    iBackendServiceSignIn.onSuccess(user);
-                }
-            });
+            User activeUser = kinveyClient.getActiveUser();
+            if (activeUser != null){
+                Log.i("info:", "Kinvey user already present.");
+                iBackendServiceSignIn.onSuccess(activeUser);
+            } else {
+                Log.i("info:", "Kinvey user not present. Logging-in now.");
+                UserStore.login(userName, password, kinveyClient, new KinveyClientCallback<User>() {
+                    @Override
+                    public void onFailure(Throwable throwable) {
+                        iBackendServiceSignIn.onFailure(throwable);
+                    }
+                    @Override
+                    public void onSuccess(User user) {
+                        iBackendServiceSignIn.onSuccess(user);
+                    }
+                });
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
