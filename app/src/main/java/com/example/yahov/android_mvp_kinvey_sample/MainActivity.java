@@ -12,15 +12,15 @@ import com.kinvey.android.model.User;
 public class MainActivity extends AppCompatActivity implements SignInView {
 
     private SignInPresenter signInPresenter;
-    private IBackendService kinveyClient;
+    private IBackendService iBackendService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        kinveyClient = new KinveyBackendService(((App) getApplication()).getKinveyClient());
-        signInPresenter = new SignInPresenterImpl(MainActivity.this, kinveyClient);
+        iBackendService = (((App) getApplication()).getiBackendService());
+        signInPresenter = new SignInPresenterImpl(MainActivity.this, iBackendService);
         signInPresenter.signIn("xxx", "xxx");
     }
 
