@@ -4,7 +4,6 @@ import com.example.yahov.android_mvp_kinvey_sample.IBackendService;
 import com.example.yahov.android_mvp_kinvey_sample.IBackendServiceSignIn;
 import com.example.yahov.android_mvp_kinvey_sample.presenter.SignInPresenter;
 import com.example.yahov.android_mvp_kinvey_sample.view.SignInView;
-import com.kinvey.android.model.User;
 
 public class SignInPresenterImpl implements SignInPresenter {
 
@@ -20,12 +19,12 @@ public class SignInPresenterImpl implements SignInPresenter {
     public void signIn(String userName, String password) {
         iBackendService.signIn(userName, password, new IBackendServiceSignIn() {
             @Override
-            public void onSuccess(User user) {
+            public void onSuccess(Object user) {
                 signInView.signInSuccess(user);
             }
 
             @Override
-            public void onFailure(Throwable throwable) {
+            public void onFailure(Object throwable) {
                 signInView.signInError(throwable);
             }
         });
